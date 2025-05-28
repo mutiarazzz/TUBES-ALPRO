@@ -5,14 +5,13 @@ import (
 )
 
 type Pakaian struct {
-	Nama       string
-	Kategori   string
-	Warna      string
-	Formalitas int
-	Cuaca      string
-	Jenis      string
-
-	// TerakhirDipakai time.Time
+	Nama            string
+	Kategori        string
+	Warna           string
+	Formalitas      int
+	Cuaca           string
+	Jenis           string
+	TerakhirDipakai string
 }
 
 const NMAX int = 1000
@@ -27,11 +26,15 @@ func main() {
 	for {
 		fmt.Println("\n--- Menu OOTD Planner ---")
 		fmt.Println("1. Tampilkan Semua Pakaian")
-		fmt.Println("2. Tambah Outfit")
-		fmt.Println("3. Hapus Data Outfit")
-		fmt.Println("4. Rekomendasi Outfit")
+		fmt.Println("2. Tambah Data Pakaian")
+		fmt.Println("3. Ubah Data Pakaian")
+		fmt.Println("4. Hapus Data Pakaian")
 		fmt.Println("5. Cari Pakaian")
-		fmt.Println("6. Keluar")
+		fmt.Println("6. Rekomendasi Outfit")
+		fmt.Println("7. Urutkan Berdasarkan Formalitas")
+		fmt.Println("8. Urutkan Berdasarkan Tanggal Terakhir Dipakai")
+		fmt.Println("9. Lihat Semua Kombinasi Outfit")
+		fmt.Println("10. Keluar")
 		fmt.Print("Pilih menu: ")
 		fmt.Scan(&pilihan)
 
@@ -41,12 +44,20 @@ func main() {
 		case 2:
 			tambahData(&data, &nData)
 		case 3:
-			hapusData(&data, &nData)
+			ubahPakaian(&data, nData)
 		case 4:
-			rekomendasiOutfit(data, nData)
+			hapusData(&data, &nData)
 		case 5:
 			cariPakaian(data, nData)
 		case 6:
+			rekomendasiOutfit(data, nData)
+		case 7:
+			sortFormalitas(data, nData)
+		case 8:
+			sortByTanggalTerakhirDipakai(data, nData)
+		case 9:
+			kombinasiOutfit(data, nData)
+		case 10:
 			fmt.Println("Terima kasih telah menggunakan OOTD Planner!")
 			return
 		default:
@@ -55,6 +66,9 @@ func main() {
 	}
 }
 
+// Tambah Data Pakaian
+// Pengguna memasukkan informasi pakaian baru//
+// Tujuan: Menyimpan data pakaian ke array
 func tambahData(A *tabPakaian, n *int) {
 	fmt.Print("Silahkan Masukkan Nama Pakaian: ")
 	fmt.Scan(&A[*n].Nama)
@@ -64,21 +78,28 @@ func tambahData(A *tabPakaian, n *int) {
 	fmt.Scan(&A[*n].Warna)
 	fmt.Print("Silahkan Masukkan Tingkat Formalitas dari Pakaian: ")
 	fmt.Scan(&A[*n].Formalitas)
-	fmt.Print("Silahkan Masukkan Cuaca yang Cocok untuk Pakaian Anda(HUjan/Panas/Dingin): ")
+	fmt.Print("Silahkan Masukkan Cuaca yang Cocok untuk Pakaian Anda(Hujan/Panas/Dingin): ")
 	fmt.Scan(&A[*n].Cuaca)
 	fmt.Print("Silahkan Masukkan Jenis Pakaian(Atasan/Bawahan/Footwear): ")
 	fmt.Scan(&A[*n].Jenis)
+	fmt.Print("Tanggal Terakhir Dipakai (YYYY-MM-DD): ")
+	fmt.Scan(&A[*n].TerakhirDipakai)
 	*n++
 
 }
 
+// Tampilkan Semua Pakaian//
+// Menampilkan seluruh data pakaian yang telah dimasukkan//
+// Tujuan: Menampilkan seluruh isi array pakaian.
 func tampilkanData(A tabPakaian, n int) {
-	var i int
-	for i = 1; i < n; i++ {
-		fmt.Printf("%d. Nama Pakaian: %s, Kategori: %s, Warna: %s, Formalitas: %d, Cuaca: %s, Jenis: %s\n", i, A[i].Nama, A[i].Kategori, A[i].Warna, A[i].Formalitas, A[i].Cuaca, A[i].Jenis)
+	for i := 1; i < n; i++ {
+		fmt.Printf("%d. Nama: %s | Kategori: %s | Warna: %s | Formalitas: %d | Cuaca: %s | Jenis: %s | Terakhir Dipakai: %s\n",
+			i, A[i].Nama, A[i].Kategori, A[i].Warna, A[i].Formalitas, A[i].Cuaca, A[i].Jenis, A[i].TerakhirDipakai)
 	}
 }
 
+// Rekomendasi Outfit//
+// Memberi saran outfit berdasarkan cuaca atau jenis acara//
 func rekomendasiOutfit(A tabPakaian, n int) {
 	var pilihan int
 	var cuaca string
@@ -121,6 +142,9 @@ func rekomendasiOutfit(A tabPakaian, n int) {
 
 }
 
+// Cari Pakaian
+// Mencari pakaian berdasarkan Nama, Kategori, Warna, atau Cuaca
+// Sequential Search: Mencari satu per satu.
 func cariPakaian(A tabPakaian, n int) {
 	var pilihan int
 	var nama string
@@ -170,6 +194,8 @@ func cariPakaian(A tabPakaian, n int) {
 	}
 }
 
+// Edit / Ubah Data Pakaian
+// Mengubah atribut pakaian pada indeks tertentu berdasarkan pilihan user
 func ubahPakaian(A *tabPakaian, n int) {
 	var pilihan int
 	var ID int
@@ -216,6 +242,8 @@ func ubahPakaian(A *tabPakaian, n int) {
 	}
 }
 
+// Hapus Data Outfit//
+// Menghapus data berdasarkan indeks yang dipilih user//
 func hapusData(A *tabPakaian, n *int) {
 	var idx int
 	tampilkanData(*A, *n)
@@ -229,4 +257,71 @@ func hapusData(A *tabPakaian, n *int) {
 		A[i].Jenis = A[i+1].Jenis
 	}
 	*n -= 1
+}
+
+func kombinasiOutfit(A tabPakaian, n int) {
+	fmt.Println("\n--- Semua Kombinasi Outfit (Atasan + Bawahan + Footwear) ---")
+	var count int = 1
+	for i := 1; i < n; i++ {
+		if A[i].Jenis == "Atasan" {
+			for j := 1; j < n; j++ {
+				if A[j].Jenis == "Bawahan" {
+					for k := 1; k < n; k++ {
+						if A[k].Jenis == "Footwear" {
+							fmt.Printf("\nKombinasi %d:\n", count)
+							fmt.Printf("  Atasan  : %s (%s)\n", A[i].Nama, A[i].Warna)
+							fmt.Printf("  Bawahan : %s (%s)\n", A[j].Nama, A[j].Warna)
+							fmt.Printf("  Footwear: %s (%s)\n", A[k].Nama, A[k].Warna)
+							count++
+						}
+					}
+				}
+			}
+		}
+	}
+	if count == 1 {
+		fmt.Println("Belum ada kombinasi yang bisa ditampilkan (cek data jenis pakaian).")
+	}
+}
+
+// Mengurutkan pakaian berdasarkan tingkat formalitas
+// Menampilkan semua pakaian yang ada berdasarkan tingkat formalitas
+func sortFormalitas(A tabPakaian, n int) {
+	var i, idx, pass int
+	var ya Pakaian
+
+	pass = 2
+	for pass < n {
+		idx = pass - 1
+		i = pass
+		for i < n {
+			if A[i].Formalitas > A[idx].Formalitas {
+				idx = i
+			}
+			i += 1
+		}
+		ya = A[pass-1]
+		A[pass-1] = A[idx]
+		A[idx] = ya
+		pass += 1
+	}
+	fmt.Println("Data terurut dari formalitas terbesar sampai terendah: ")
+	tampilkanData(A, n)
+}
+
+// Menampilkan semua kombinasi atasan, bawahan, dan footwear
+func sortByTanggalTerakhirDipakai(A tabPakaian, n int) {
+	var i, j int
+	var temp Pakaian
+	for i = 1; i < n-1; i++ {
+		for j = i + 1; j < n; j++ {
+			if A[i].TerakhirDipakai < A[j].TerakhirDipakai { // string comparison
+				temp = A[i]
+				A[i] = A[j]
+				A[j] = temp
+			}
+		}
+	}
+	fmt.Println("Data terurut dari yang paling baru dipakai:")
+	tampilkanData(A, n)
 }
