@@ -1,3 +1,4 @@
+👕 OOTD Planner: Lemari Digital Anda!
 Aplikasi OOTD Planner dirancang untuk membantu Anda mengatur koleksi pakaian agar lebih rapi, efisien, dan mudah digunakan sehari-hari. Anggap saja ini adalah lemari digital pribadi Anda! Dengan aplikasi ini, Anda bisa menyimpan data lengkap tentang setiap pakaian, mulai dari nama, jenis, warna, hingga tingkat formalitasnya.
 
 Tidak hanya itu, OOTD Planner juga menyediakan fitur canggih untuk membuat kombinasi outfit yang keren. Anda bisa mendapatkan rekomendasi pakaian berdasarkan cuaca atau acara yang akan dihadiri. Melalui fitur-fitur seperti tambah pakaian, pencarian, rekomendasi outfit, hingga pengurutan berdasarkan tanggal terakhir dipakai, aplikasi ini akan membantu Anda membuat keputusan berpakaian yang tepat dan menghemat waktu setiap harinya.
