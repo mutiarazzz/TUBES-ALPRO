@@ -24,17 +24,21 @@ func main() {
 	nData = 1
 	var pilihan int
 	for {
-		fmt.Println("\n--- Menu OOTD Planner ---")
-		fmt.Println("1. Tambah Data Pakaian")
-		fmt.Println("2. Tampilkan Semua Pakaian")
-		fmt.Println("3. Ubah Data Pakaian")
-		fmt.Println("4. Hapus Data Pakaian")
-		fmt.Println("5. Cari Pakaian")
-		fmt.Println("6. Rekomendasi Outfit")
-		fmt.Println("7. Urutkan Berdasarkan Formalitas")
-		fmt.Println("8. Urutkan Berdasarkan Tanggal Terakhir Dipakai")
-		fmt.Println("9. Lihat Semua Kombinasi Outfit")
-		fmt.Println("10. Keluar")
+		// Tampilan menu kotak rapi
+		fmt.Println("╔════════════════════════════════════════════════════════════════════╗")
+		fmt.Println("║                        OOTD PLANNER - MENU                         ║")
+		fmt.Println("╠════════════════════════════════════════════════════════════════════╣")
+		fmt.Println("║ →  1. Tambah Data Pakaian                                          ║")
+		fmt.Println("║ →  2. Tampilkan Semua Pakaian                                      ║")
+		fmt.Println("║ →  3. Ubah Data Pakaian                                            ║")
+		fmt.Println("║ →  4. Hapus Data Pakaian                                           ║")
+		fmt.Println("║ →  5. Cari Pakaian                                                 ║")
+		fmt.Println("║ →  6. Rekomendasi Outfit                                           ║")
+		fmt.Println("║ →  7. Urutkan Berdasarkan Formalitas                               ║")
+		fmt.Println("║ →  8. Urutkan Berdasarkan Tanggal Terakhir Dipakai                 ║")
+		fmt.Println("║ →  9. Lihat Semua Kombinasi Outfit                                 ║")
+		fmt.Println("║ → 10. Keluar                                                       ║")
+		fmt.Println("╚════════════════════════════════════════════════════════════════════╝")
 		fmt.Print("Pilih menu: ")
 		fmt.Scan(&pilihan)
 
@@ -58,7 +62,12 @@ func main() {
 		case 9:
 			kombinasiOutfit(data, nData)
 		case 10:
-			fmt.Println("Terima kasih telah menggunakan OOTD Planner!")
+			fmt.Println("\n╔════════════════════════════════════════════════════╗")
+			fmt.Println("║        💖 Terima kasih telah menggunakan 💖        ║")
+			fmt.Println("║                🌟 OOTD Planner 🌟                  ║")
+			fmt.Println("║     Semoga harimu penuh gaya dan percaya diri!     ║")
+			fmt.Println("╚════════════════════════════════════════════════════╝")
+
 			return
 		default:
 			fmt.Println("Pilihan tidak valid, coba lagi.")
@@ -66,31 +75,52 @@ func main() {
 	}
 }
 
+
 // Tambah Data Pakaian
 // Pengguna memasukkan informasi pakaian baru//
 // Tujuan: Menyimpan data pakaian ke array
 func tambahData(A *tabPakaian, n *int) {
-	fmt.Print("Silahkan Masukkan Nama Pakaian: ")
-	fmt.Scan(&A[*n].Nama) // agar bisa memasukkan nama pakaian lebih dari satu kata//
-	fmt.Print("Silahkan Masukkan Kategori Pakaian: ")
+	fmt.Println("\n╔══════════════════════════════════════════════════════════╗")
+	fmt.Println("║                ✨ MENU TAMBAH DATA PAKAIAN ✨            ║")
+	fmt.Println("╠══════════════════════════════════════════════════════════╣")
+	fmt.Println("║ Silakan lengkapi informasi berikut tentang pakaian Anda  ║")
+	fmt.Println("╚══════════════════════════════════════════════════════════╝")
+
+	fmt.Print("🧥 Nama Pakaian: ")
+	fmt.Scan(&A[*n].Nama)
+
+	fmt.Print("📂 Kategori (misal: Casual, Formal, Sporty): ")
 	fmt.Scan(&A[*n].Kategori)
-	fmt.Print("Silahkan Masukkan Warna Pakaian yang dimiliki: ")
+
+	fmt.Print("🎨 Warna Pakaian: ")
 	fmt.Scan(&A[*n].Warna)
-	fmt.Print("Silahkan Masukkan Tingkat Formalitas dari Pakaian: ")
+
+	fmt.Print("📈 Tingkat Formalitas (misal: 1-5): ")
 	fmt.Scan(&A[*n].Formalitas)
-	fmt.Print("Silahkan Masukkan Cuaca yang Cocok untuk Pakaian Anda(Hujan/Panas/Dingin): ")
+
+	fmt.Print("🌤️  Cuaca yang Cocok (Hujan/Panas/Dingin): ")
 	fmt.Scan(&A[*n].Cuaca)
-	fmt.Print("Silahkan Masukkan Jenis Pakaian(Atasan/Bawahan/Footwear): ")
+
+	fmt.Print("👕 Jenis (Atasan/Bawahan/Footwear): ")
 	fmt.Scan(&A[*n].Jenis)
-	fmt.Print("Tanggal Terakhir Dipakai (YYYY-MM-DD): ")
+
+	fmt.Print("📅 Tanggal Terakhir Dipakai (YYYY-MM-DD): ")
 	fmt.Scan(&A[*n].TerakhirDipakai)
+
 	*n++
+	fmt.Println("\n✅ Data pakaian berhasil ditambahkan!")
 }
+
 
 // Tampilkan Semua Pakaian//
 // Menampilkan seluruh data pakaian yang telah dimasukkan//
 // Tujuan: Menampilkan seluruh isi array pakaian.
 func tampilkanData(A tabPakaian, n int) {
+	fmt.Println("\n╔══════════════════════════════════════════════════════════╗")
+	fmt.Println("║                   📋 DATA SEMUA PAKAIAN                  ║")
+	fmt.Println("╠══════════════════════════════════════════════════════════╣")
+	fmt.Println("║ Berikut adalah daftar lengkap pakaian yang tersimpan     ║")
+	fmt.Println("╚══════════════════════════════════════════════════════════╝")
 	for i := 1; i < n; i++ {
 		fmt.Printf("%d. Nama: %s | Kategori: %s | Warna: %s | Formalitas: %d | Cuaca: %s | Jenis: %s | Terakhir Dipakai: %s\n",
 			i, A[i].Nama, A[i].Kategori, A[i].Warna, A[i].Formalitas, A[i].Cuaca, A[i].Jenis, A[i].TerakhirDipakai)
@@ -108,13 +138,17 @@ func ubahPakaian(A *tabPakaian, n int) {
 	var cuaca string
 	var jenis string
 
-	fmt.Println("Pilih ID Pakaian yang ingin diubah: ")
-	fmt.Scan(&ID)
-	fmt.Println("1. Edit Pakaian Bedasarkan Nama")
-	fmt.Println("2. Edit Pakaian Bedasarkan Kategori")
-	fmt.Println("3. Edit Pakaian Bedasarkan Warna")
-	fmt.Println("4. Edit Pakaian Bedasarkan Jenis")
-	fmt.Println("5. Edit Pakaian Bedasarkan Cuaca")
+fmt.Println("\n╔═══════════════════════════════════════════════╗")
+fmt.Println("║       ✨ PILIH DATA YANG INGIN DIUBAH ✨      ║")
+fmt.Println("╚═══════════════════════════════════════════════╝")
+fmt.Println() 
+fmt.Println("Pilih ID Pakaian yang ingin diubah: ")
+fmt.Scan(&ID)
+fmt.Println("1. Edit Pakaian Bedasarkan Nama")
+fmt.Println("2. Edit Pakaian Bedasarkan Kategori")
+fmt.Println("3. Edit Pakaian Bedasarkan Warna")
+fmt.Println("4. Edit Pakaian Bedasarkan Jenis")
+fmt.Println("5. Edit Pakaian Bedasarkan Cuaca")
 
 	fmt.Scan(&pilihan)
 	switch pilihan {
@@ -146,6 +180,10 @@ func ubahPakaian(A *tabPakaian, n int) {
 func hapusData(A *tabPakaian, n *int) {
 	var idx int
 	tampilkanData(*A, *n)
+	fmt.Println("\n╔══════════════════════════════════════════╗")
+	fmt.Println("║             🗑️ HAPUS DATA PAKAIAN         ║")
+	fmt.Println("╚══════════════════════════════════════════╝")
+	fmt.Println()
 	fmt.Print("Pilih data Pakaian ke- berapa yang ingin dihapus: ")
 	fmt.Scan(&idx)
 	for i := idx; i < *n; i++ {
@@ -170,13 +208,18 @@ func cariPakaian(A tabPakaian, n int) {
 	var jenis string
 	var i int
 
-	fmt.Println("1. Cari Pakaian Bedasarkan Nama")
-	fmt.Println("2. Cari Pakaian Bedasarkan Kategori")
-	fmt.Println("3. Cari Pakaian Bedasarkan Warna")
-	fmt.Println("4. Cari Pakaian Bedasarkan Tingkat Formalitas")
-	fmt.Println("5. Cari Pakaian Bedasarkan Jenis")
+fmt.Println("\n╔═══════════════════════════════════════════════╗")
+fmt.Println("║               🔍 MENU CARI PAKAIAN            ║")
+fmt.Println("╠═══════════════════════════════════════════════╣")
+fmt.Println("║ 1. Cari Pakaian Berdasarkan Nama              ║")
+fmt.Println("║ 2. Cari Pakaian Berdasarkan Kategori          ║")
+fmt.Println("║ 3. Cari Pakaian Berdasarkan Warna             ║")
+fmt.Println("║ 4. Cari Pakaian Berdasarkan Tingkat Formalitas║")
+fmt.Println("║ 5. Cari Pakaian Berdasarkan Jenis             ║")
+fmt.Println("╚═══════════════════════════════════════════════╝")
+fmt.Println()
+fmt.Print("Apa yang ingin anda cari? ")
 
-	fmt.Print("Apa yang ingin anda cari? ")
 	fmt.Scan(&pilihan)
 	switch pilihan {
 	case 1:
@@ -261,10 +304,16 @@ func rekomendasiOutfit(A tabPakaian, n int) {
 	var acara string
 	var i int
 
-	fmt.Println("1. Rekomendasi Outfit Berdasarkan Cuaca ")
-	fmt.Println("2. Rekomendasi Outfit Berdasarkan Acara yang dihadiri ")
+	fmt.Println("\n╔═══════════════════════════════════════════════════════╗")
+	fmt.Println("║              👗 MENU REKOMENDASI OUTFIT               ║")
+	fmt.Println("╠═══════════════════════════════════════════════════════╣")
+	fmt.Println("║ 1. Rekomendasi Outfit Berdasarkan Cuaca               ║")
+	fmt.Println("║ 2. Rekomendasi Outfit Berdasarkan Acara yang dihadiri ║")
+	fmt.Println("╚═══════════════════════════════════════════════════════╝")
+	fmt.Println()
 	fmt.Println("Masukkan Pilihan Anda: ")
 	fmt.Scan(&pilihan)
+
 
 	switch pilihan {
 	case 1:
@@ -301,6 +350,15 @@ func rekomendasiOutfit(A tabPakaian, n int) {
 func sortFormalitas(A tabPakaian, n int) {
 	var i, idx, pass int
 	var ya Pakaian
+
+	fmt.Println()
+    fmt.Println("╔════════════════════════════════════════════════════════════╗")
+    fmt.Println("║              🔼 Pakaian dari yang Paling Formal 🔽         ║")
+    fmt.Println("╠════════════════════════════════════════════════════════════╣")
+    fmt.Println("║       Lihat daftar pakaian dengan tingkat formalitas       ║")
+    fmt.Println("║          mulai dari yang tertinggi ke yang terendah        ║")
+    fmt.Println("╚════════════════════════════════════════════════════════════╝")
+	fmt.Println()
 
 	pass = 2
 	for pass < n {
@@ -343,8 +401,16 @@ func sortByTanggalTerakhirDipakai(A tabPakaian, n int) {
 
 // Menampilkan semua kombinasi atasan, bawahan, dan footwear
 func kombinasiOutfit(A tabPakaian, n int) {
-	fmt.Println("\n--- Semua Kombinasi Outfit (Atasan + Bawahan + Footwear) ---")
 	var count int = 1
+
+	fmt.Println()
+	fmt.Println("╔═══════════════════════════════════════════════════════════╗")
+	fmt.Println("║           👗 KOMBINASI OUTFIT YANG COCOK BUAT KAMU        ║")
+	fmt.Println("╠═══════════════════════════════════════════════════════════╣")
+	fmt.Println("║ Semua Kombinasi Outfit (Atasan + Bawahan + Footwear)      ║")
+	fmt.Println("║               dari data pakaian yang tersedia             ║")
+	fmt.Println("╚═══════════════════════════════════════════════════════════╝")
+
 	for i := 1; i < n; i++ {
 		if A[i].Jenis == "Atasan" {
 			for j := 1; j < n; j++ {
@@ -367,3 +433,4 @@ func kombinasiOutfit(A tabPakaian, n int) {
 	}
 	fmt.Println()
 }
+
