@@ -1,103 +1,172 @@
-👕 OOTD Planner: Lemari Digital Anda!
-Aplikasi OOTD Planner dirancang untuk membantu Anda mengatur koleksi pakaian agar lebih rapi, efisien, dan mudah digunakan sehari-hari. Anggap saja ini adalah lemari digital pribadi Anda! Dengan aplikasi ini, Anda bisa menyimpan data lengkap tentang setiap pakaian, mulai dari nama, jenis, warna, hingga tingkat formalitasnya.
+👗 OOTD Planner - Lemari Digital Pintar
 
-Tidak hanya itu, OOTD Planner juga menyediakan fitur canggih untuk membuat kombinasi outfit yang keren. Anda bisa mendapatkan rekomendasi pakaian berdasarkan cuaca atau acara yang akan dihadiri. Melalui fitur-fitur seperti tambah pakaian, pencarian, rekomendasi outfit, hingga pengurutan berdasarkan tanggal terakhir dipakai, aplikasi ini akan membantu Anda membuat keputusan berpakaian yang tepat dan menghemat waktu setiap harinya.
+Aplikasi ini dirancang untuk membantu pengguna dalam mengatur pakaian yang mereka miliki agar lebih rapi, efisien, dan mudah digunakan sehari-hari. Dapat disebut juga sebagai **lemari digital**. Dengan aplikasi ini, pengguna bisa menyimpan data tentang setiap pakaian yang dimiliki, mulai dari nama, jenis, warna, hingga tingkat formalitasnya.
 
-✨ Fitur - fitur yang ada pada aplikasi ini
-Berikut adalah penjabaran mendetail dari setiap fitur beserta cara kerjanya:
+Selain itu, aplikasi ini juga menyediakan fitur untuk membuat kombinasi outfit yang tersedia. Pengguna bisa mendapatkan rekomendasi pakaian berdasarkan **cuaca** atau **acara** yang akan dihadiri. Melalui fitur-fitur seperti **tambah pakaian**, **pencarian**, **rekomendasi outfit**, hingga **pengurutan berdasarkan tanggal terakhir dipakai**, aplikasi ini membantu pengguna membuat keputusan berpakaian yang tepat tanpa membuang waktu.
+
+---
+
+✨ Fitur Utama dan Penjelasannya
 
 1. Menu Utama
-Sebagai titik awal eksekusi program, Fitur Menu mengelola seluruh alur interaksi pengguna dengan aplikasi. Sebuah perulangan akan terus menampilkan pilihan fitur kepada pengguna hingga Anda memutuskan untuk keluar. Setiap iterasi menampilkan daftar menu dengan berbagai fitur, mulai dari penambahan, penampilan, pengubahan, penghapusan data pakaian, pencarian, rekomendasi outfit, pengurutan, hingga melihat semua kombinasi outfit.
 
-Menampilkan: Daftar pilihan menu utama dan petunjuk untuk memilih menu dengan mengetik angka.
-Akses ke: Berbagai fitur aplikasi.
-Fungsi Terkait: main()
-Proses Input:
-Jalankan aplikasi.
-Lihat daftar menu yang muncul.
-Pilih satu fitur dengan memasukkan angka.
-Aplikasi menjalankan fitur yang dipilih, lalu kembali ke menu utama.
-Pilih opsi keluar jika sudah selesai.
+* Titik awal program OOTD Planner dan pengelola alur interaksi pengguna.
+* Menampilkan daftar menu fitur, memungkinkan pengguna memilih dan menavigasi aplikasi.
+
+**Tampilan Menu mencakup:**
+
+* Daftar pilihan fitur
+* Petunjuk input angka
+* Akses ke semua fitur aplikasi
+
+**Fungsi terkait:** `main()`
+
+**Proses Input:**
+
+1. Pengguna menjalankan aplikasi
+2. Melihat daftar menu
+3. Memilih fitur dengan mengetik angka
+4. Aplikasi menjalankan fitur tersebut dan kembali ke menu utama
+5. Pilih keluar jika ingin mengakhiri aplikasi
+
+---
 
 2. Tambah Pakaian
-Fungsi tambahPakaian() memungkinkan Anda memasukkan data pakaian baru ke dalam sistem. Prosesnya dilakukan melalui input bertahap untuk atribut seperti nama, kategori (atasan, bawahan, footwear), warna, cuaca yang sesuai, jenis pakaian, tingkat formalitas, serta tanggal terakhir digunakan. Semua data akan disimpan dalam struktur array dan jumlah data akan bertambah otomatis.
 
-Memungkinkan: Menambahkan pakaian baru ke sistem.
-Mencakup: Input nama pakaian, kategori, warna, tingkat formalitas (1-5), cuaca yang sesuai, jenis pakaian (Atasan, Bawahan, Footwear), dan tanggal terakhir dipakai (format: YYYY-MM-DD).
-Fungsi Terkait: tambahPakaian()
-Proses Input:
-Akses dari menu utama, pilih opsi satu (Tambah Pakaian).
-Masukkan seluruh data pakaian sesuai urutan.
+Memungkinkan pengguna menambahkan pakaian baru ke sistem.
 
-3. Tampil Pakaian
-Melalui fungsi tampilPakaian(), program menampilkan seluruh daftar pakaian yang tersimpan dalam array. Data ditampilkan dalam bentuk tabel atau list yang rapi, menunjukkan semua atribut masing-masing pakaian. Fitur ini bertujuan untuk membantu Anda mengetahui isi lemari virtual Anda dengan lebih mudah.
+**Input Data:**
 
-Menampilkan: Seluruh koleksi pakaian yang telah dimasukkan.
-Mencakup: Semua atribut pakaian dan penomoran indeks untuk identifikasi item.
-Fungsi Terkait: tampilkanPakaian()
-Proses Input: Akses dari menu utama, pilih opsi dua (Tampilkan Semua Pakaian).
+* Nama pakaian
+* Kategori (Casual, Formal, dll.)
+* Warna
+* Tingkat formalitas (1–5)
+* Cuaca
+* Jenis (Atasan, Bawahan, Footwear)
+* Tanggal terakhir dipakai (YYYY-MM-DD)
 
-4. Ubah Pakaian
-Fungsi ubahPakaian() memberikan fleksibilitas untuk memperbarui informasi pakaian yang telah tersimpan. Anda cukup memasukkan nama pakaian yang ingin diubah, sistem akan mencari dan menampilkan data lama. Setelah itu, Anda dapat memilih atribut mana yang ingin diperbarui dan memasukkan data baru, menjaga informasi pakaian tetap relevan dan terkini.
+**Fungsi terkait:** `tambahPakaian()`
 
-Memungkinkan: Mengubah data dari pakaian tertentu.
-Mencakup: Pemilihan pakaian berdasarkan indeks, pemilihan atribut yang ingin diubah (nama, warna, jenis, dll.), dan memasukkan data baru.
-Fungsi Terkait: ubahPakaian()
-Proses Input:
-Akses dari menu utama, pilih opsi tiga (Ubah Data Pakaian).
-Pilih indeks pakaian.
-Pilih atribut yang ingin diubah.
-Masukkan data baru.
+**Langkah:**
+
+1. Pilih menu Tambah Pakaian
+2. Masukkan data pakaian satu per satu
+
+---
+
+3. Tampilkan Semua Pakaian
+
+Menampilkan seluruh daftar pakaian yang tersimpan secara rapi.
+
+**Fitur ini mencakup:**
+
+* Penomoran indeks
+* Semua atribut pakaian (nama, kategori, dll.)
+
+**Fungsi terkait:** `tampilPakaian()`
+
+**Langkah:** Pilih opsi Tampilkan Semua Pakaian dari menu
+
+---
+
+4. Ubah Data Pakaian
+
+Memungkinkan pengguna memperbarui atribut pakaian tertentu.
+
+**Langkah-langkah:**
+
+1. Pilih opsi Ubah Data Pakaian
+2. Pilih indeks/nama pakaian
+3. Pilih atribut yang ingin diubah
+4. Masukkan data baru
+
+**Fungsi terkait:** `ubahPakaian()`
+
+---
 
 5. Hapus Pakaian
-Fitur hapusPakaian() berfungsi untuk menghapus salah satu pakaian dari data. Anda cukup memasukkan nama pakaian yang ingin dihapus. Jika ditemukan, sistem akan menghapusnya dengan menggeser elemen array setelahnya ke kiri, dan jumlah total data pakaian akan berkurang secara otomatis.
 
-Memungkinkan: Menghapus pakaian dari daftar.
-Mencakup: Pemilihan indeks pakaian, penghapusan item dari array, dan penyesuaian jumlah data.
-Fungsi Terkait: hapusPakaian()
-Proses Input:
-Akses dari menu utama, pilih opsi empat (Hapus Data Pakaian).
-Pilih indeks pakaian yang ingin dihapus.
+Menghapus satu data pakaian dari sistem.
+
+**Fitur ini mencakup:**
+
+* Pemilihan indeks/nama
+* Penghapusan dari array
+* Penyesuaian jumlah data (n)
+
+**Fungsi terkait:** `hapusPakaian()`
+
+**Langkah:** Pilih menu Hapus Pakaian, masukkan indeks/nama
+
+---
 
 6. Cari Pakaian
-Fungsi cariPakaian() memungkinkan Anda mencari pakaian berdasarkan atribut tertentu, seperti nama, kategori, warna, jenis, atau tingkat formalitas. Pencarian menggunakan sequential search untuk data tidak terurut dan binary search untuk kategori (setelah diurutkan), membuat pencarian lebih cepat dan efisien.
 
-Memfasilitasi: Pencarian pakaian berdasarkan kata kunci dan kategori.
-Mencakup: Input kategori pencarian (nama, warna, jenis, cuaca, dll.) dan kata kunci pencarian.
-Fungsi Terkait: cariPakaian()
-Proses Input:
-Akses dari menu utama, pilih opsi lima (Cari Pakaian).
-Masukkan kategori pencarian.
-Masukkan kata kunci pencarian.
+Pencarian berdasarkan atribut pakaian seperti nama, jenis, warna, dll.
+
+**Pencarian dilakukan dengan:**
+
+* Sequential Search (untuk atribut umum)
+* Binary Search (untuk kategori, setelah diurutkan)
+
+**Fungsi terkait:** `cariPakaian()`
+
+**Langkah:**
+
+1. Pilih menu Cari Pakaian
+2. Masukkan kategori pencarian
+3. Masukkan keyword pencarian
+
+---
 
 7. Rekomendasi Outfit
-Fitur rekomendasiOutfit() berfungsi untuk memberikan saran outfit berdasarkan dua parameter utama: cuaca dan jenis acara. Sistem akan memfilter pakaian yang sesuai dengan cuaca, lalu mencocokkan tingkat formalitas pakaian dengan standar minimal formalitas dari acara tertentu (misalnya, rapat membutuhkan formalitas ≥4, bermain ≥1, dan pesta/pernikahan ≥5).
 
-Memberikan: Saran outfit berdasarkan cuaca dan jenis acara.
-Mencakup: Input cuaca saat ini dan jenis acara (rapat, pesta, main, dll.).
-Fungsi Terkait: rekomendasiOOTD()
-Proses Input:
-Akses dari menu utama, pilih opsi enam (Rekomendasi Outfit).
-Input cuaca dan jenis acara.
+Memberikan saran outfit berdasarkan:
+
+* **Cuaca saat ini**
+* **Jenis acara** (rapat, pesta, bermain, olahraga)
+
+**Fungsi terkait:** `rekomendasiOutfit()`
+
+**Langkah:**
+
+1. Pilih menu Rekomendasi Outfit
+2. Input cuaca dan jenis acara
+3. Sistem menampilkan outfit yang cocok
+
+---
 
 8. Urut Berdasarkan Formalitas
-Fungsi sortFormalitas() mengurutkan seluruh data pakaian berdasarkan nilai formalitas dari terendah hingga tertinggi menggunakan algoritma selection sort. Dengan fitur ini, Anda dapat melihat daftar pakaian secara berurutan berdasarkan tingkat formalitas.
 
-Menampilkan: Hasil setelah diurutkan.
-Fungsi Terkait: selectionSortFormalitas()
-Proses Input: Akses dari menu utama, pilih opsi tujuh (Urutkan Berdasarkan Formalitas).
+Mengurutkan daftar pakaian berdasarkan tingkat formalitas (tinggi ke rendah).
+
+**Algoritma:** Selection Sort
+**Fungsi terkait:** `sortFormalitas()`
+
+**Langkah:** Pilih menu Urut Berdasarkan Formalitas
+
+---
 
 9. Urut Berdasarkan Tanggal Terakhir Dipakai
-Fitur sortTanggal() digunakan untuk menyusun pakaian berdasarkan tanggal terakhir digunakan, dari yang paling baru hingga yang paling lama, menggunakan algoritma insertion sort. Ini cocok untuk data yang sebagian besar sudah terurut. Dengan melihat tanggal terakhir dipakai, Anda bisa lebih bijak dalam menggunakan pakaian secara bergiliran.
 
-Mengurutkan: Pakaian berdasarkan tanggal terakhir dipakai dari yang terbaru ke terlama.
-Menampilkan: Hasil setelah diurutkan.
-Fungsi Terkait: insertionSortTanggal()
-Proses Input: Akses dari menu utama, pilih opsi delapan (Urutkan Berdasarkan Tanggal Dipakai).
+Mengurutkan pakaian dari tanggal terakhir digunakan (baru → lama).
+
+**Algoritma:** Insertion Sort
+**Fungsi terkait:** `sortByTanggalTerakhirDipakai()`
+
+**Langkah:** Pilih menu Urut Berdasarkan Tanggal Dipakai
+
+---
 
 10. Kombinasi Outfit
-Fungsi kombinasiOutfit() menyajikan semua kemungkinan kombinasi outfit yang terdiri dari tiga kategori utama: atasan, bawahan, dan alas kaki (footwear). Program akan melakukan iterasi bertingkat untuk setiap kategori dan menghasilkan seluruh kombinasi yang mungkin, sangat berguna bagi Anda yang ingin melihat variasi gaya dari koleksi pakaian Anda.
 
-Mencakup: Menggabungkan setiap atasan, bawahan, dan footwear yang ada, lalu menampilkan seluruh kombinasi yang tersedia.
-Fungsi Terkait: kombinasiOutfit()
-Proses Input: Akses dari menu utama, pilih opsi sembilan (Lihat Semua Kombinasi Outfit).
+Menampilkan semua kemungkinan kombinasi dari:
+
+* Atasan
+* Bawahan
+* Footwear
+
+**Fungsi terkait:** `kombinasiOutfit()`
+
+**Langkah:** Pilih menu Lihat Semua Kombinasi Outfit
+
