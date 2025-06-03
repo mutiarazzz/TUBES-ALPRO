@@ -384,6 +384,12 @@ func sortFormalitas(A tabPakaian, n int) {
 // Menampilkan semua pakaian yang ada berdasarkan terakhir digunakan
 // Menggunakan Algoritma : Insertion Sort
 func sortByTanggalTerakhirDipakai(A tabPakaian, n int) {
+	fmt.Println("\n╔════════════════════════════════════════════════════════════╗")
+	fmt.Println("║     📆  Lihat Outfit dari yang Terbaru Kamu Pakai!         ║")
+	fmt.Println("║        Pakaian diurutkan berdasarkan tanggal terakhir      ║")
+	fmt.Println("╚════════════════════════════════════════════════════════════╝")
+	fmt.Println()
+
 	for i := 2; i <= n; i++ {
 		temp := A[i]
 		j := i - 1
